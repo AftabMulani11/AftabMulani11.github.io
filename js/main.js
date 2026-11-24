@@ -79,14 +79,14 @@
       title: "Lambda Benchmark Dashboard",
       role: "Solo build · Cloud performance & cost tooling",
       summary:
-        "A FastAPI dashboard that automates benchmarking of AWS Lambda memory configurations — comparing cold starts, latency and estimated cost per million requests, streamed live to the browser via Server-Sent Events.",
+        "A FastAPI dashboard that automates benchmarking of AWS Lambda memory configurations — comparing cold starts, latency and estimated cost per million requests, displayed in interactive charts.",
       overview:
-        "Choosing the right Lambda memory size is a cost-vs-latency tradeoff most teams guess at. This dashboard turns that guess into data: it runs a benchmark suite across memory tiers, captures cold-start and warm-latency distributions, computes the billed-duration cost curve, and surfaces the sweet spot where price and performance meet — all in a live, streaming UI.",
+        "Choosing the right Lambda memory size is a cost-vs-latency tradeoff most teams guess at. This dashboard turns that guess into data: it compares benchmark results across memory tiers, captures cold-start and warm-latency distributions, computes the billed-duration cost curve, and surfaces the sweet spot where price and performance meet — all in an interactive dashboard.",
       tags: ["Python", "FastAPI", "Jinja2", "AWS Lambda", "Boto3", "Chart.js", "SSE", "PapaParse"],
       points: [
         "Benchmarks memory sizes 128MB–3008MB across health, transform and I/O endpoints in one run.",
         "Computes billing ratios and cost-per-million-requests from runtime duration matrices.",
-        "Streams live execution progress to charts and sortable tables over Server-Sent Events.",
+        "Charts benchmark CSVs and displays results in sortable tables.",
         "Ships dashboards for cold-start analysis, cost heatmaps, memory utilization and a weighted performance radar.",
         "Supports CSV upload/download and benchmarking against your own deployed FastAPI endpoint.",
       ],
@@ -95,10 +95,9 @@
       metrics: [
         { k: "6", v: "memory tiers" },
         { k: "3", v: "endpoint profiles" },
-        { k: "live", v: "SSE streaming" },
+        { k: "input", v: "CSV results" },
       ],
       stack: "Python · FastAPI · Jinja2 · Boto3 · Vanilla JS · Chart.js",
-      demo: "https://aftabmulani11.github.io/lambda-benchmark-dashboard/",
       repo: "https://github.com/AftabMulani11/lambda-benchmark-dashboard",
     },
     greenstay: {
@@ -126,7 +125,6 @@
         { k: "docker", v: "multi-container" },
       ],
       stack: "React · Flask · Docker · AWS Lambda · SQS · SES · Nginx",
-      demo: "https://aftabmulani11.github.io/greenstay/",
       repo: "https://github.com/AftabMulani11/greenstay",
     },
     cryptofolio: {
@@ -153,7 +151,6 @@
         { k: "ECR→EB", v: "auto release" },
       ],
       stack: "React · Flask · Jenkins · Docker · SonarCloud · AWS ECR / Beanstalk / S3",
-      demo: "https://aftabmulani11.github.io/cryptofolio/",
       repo: "https://github.com/AftabMulani11/cryptofolio",
     },
     saarush: {
@@ -179,7 +176,6 @@
         { k: "modular", v: "commands" },
       ],
       stack: "Python · SpeechRecognition · PyAudio · Pyttsx3 · OpenCV",
-      demo: null,
       repo: "https://github.com/AftabMulani11/saarush-assistant",
     },
     terraform: {
@@ -206,7 +202,6 @@
         { k: "0", v: "secrets in git" },
       ],
       stack: "Terraform · Ansible · AWS VPC / EC2 · tls_private_key",
-      demo: null,
       repo: "https://github.com/AftabMulani11/Terraform-Learning",
     },
     qa: {
@@ -233,7 +228,6 @@
         { k: "4", v: "test layers" },
       ],
       stack: "Java · Selenium · Cucumber · REST Assured · TestNG · Maven",
-      demo: null,
       repo: "https://github.com/AftabMulani11/qa-automation-portfolio",
     },
   };
@@ -249,8 +243,6 @@
   const mOverview = document.getElementById("modal-overview");
   const mMetrics = document.getElementById("modal-metrics");
   const mStack = document.getElementById("modal-stack");
-  const mDemo = document.getElementById("modal-demo");
-  const mDemoSoon = document.getElementById("modal-demo-soon");
   const mRepo = document.getElementById("modal-repo");
 
   document.querySelectorAll("[data-project]").forEach((btn) => {
@@ -272,19 +264,6 @@
           mRepo.classList.remove("hidden");
         } else {
           mRepo.classList.add("hidden");
-        }
-      }
-
-      // demo link (present now, or "coming soon" placeholder for future)
-      if (mDemo && mDemoSoon) {
-        if (p.demo) {
-          mDemo.href = p.demo;
-          mDemo.classList.remove("hidden");
-          mDemoSoon.classList.add("hidden");
-        } else {
-          mDemo.classList.add("hidden");
-          // with a repo link present, drop the "coming soon" chip noise
-          mDemoSoon.classList.toggle("hidden", !!p.repo);
         }
       }
 

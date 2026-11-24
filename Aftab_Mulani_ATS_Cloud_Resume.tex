@@ -96,7 +96,7 @@
 
 % ===================== SUMMARY =====================
 \section{PROFESSIONAL SUMMARY}
-Cloud and DevOps engineer with 2+ years of enterprise production operations at Accenture (96\% SLA, 80+ SAP environments) and a live, \mbox{open-source} AWS, Kubernetes, and Terraform portfolio --- every project containerized, monitored, CI/CD-deployed, and demoable on GitHub.
+Cloud and DevOps engineer with 2+ years of enterprise production operations at Accenture (96\% SLA, 80+ SAP environments) and a live, \mbox{open-source} AWS, Kubernetes, and Terraform portfolio --- every project containerized, monitored, CI/CD-deployed, and documented on GitHub.
 
 % ===================== SKILLS =====================
 \section{TECHNICAL SKILLS}
@@ -108,20 +108,20 @@ Cloud and DevOps engineer with 2+ years of enterprise production operations at A
 
 % ===================== PROJECTS =====================
 \section{CLOUD AND DEVOPS PROJECTS}
-\project{Lambda Benchmark Dashboard}{Python, FastAPI, AWS Lambda \textcolor{rulegray}{\textbar{}} \href{https://aftabmulani11.github.io/lambda-benchmark-dashboard/}{\textcolor{brandblue}{live demo}}}
+\project{Lambda Benchmark Dashboard}{Python, FastAPI, AWS Lambda \textcolor{rulegray}{\textbar{}} \href{https://github.com/AftabMulani11/lambda-benchmark-dashboard}{\textcolor{brandblue}{source code}}}
 \begin{itemize}
   \item Benchmarked AWS Lambda across 6 memory configurations and 3 endpoint profiles (cold start, latency, cost per million requests), and identified a 512MB sweet spot: 78\% lower latency than the 128MB baseline at 8\% lower cost, and 49\% cheaper than the max-memory tier.
-  \item Streamed benchmark execution live to the browser over Server-Sent Events and converted raw duration matrices into a weighted cost-performance recommendation.
+  \item Compared benchmark results in interactive charts and converted raw duration matrices into a weighted cost-performance recommendation.
 \end{itemize}
 
-\project{GreenStay}{AWS Lambda, SQS, SES, Kubernetes, Prometheus, Grafana \textcolor{rulegray}{\textbar{}} \href{https://aftabmulani11.github.io/greenstay/}{\textcolor{brandblue}{live demo}}}
+\project{GreenStay}{AWS Lambda, SQS, SES, Kubernetes, Prometheus, Grafana \textcolor{rulegray}{\textbar{}} \href{https://github.com/AftabMulani11/greenstay}{\textcolor{brandblue}{source code}}}
 \begin{itemize}
   \item Designed and containerized a hotel operations platform (Flask/React, 9 REST endpoints) with an asynchronous SQS \(\to\) Lambda \(\to\) SES pipeline that decoupled email delivery from the request path.
   \item Migrated all 4 services to Kubernetes: Deployments with health probes and resource limits, CPU-based autoscaling (HPA), Ingress routing, and secrets kept out of version control.
   \item Instrumented the API with Prometheus metrics and shipped a provisioned Grafana dashboard tracking request rate, p95 latency, HTTP status mix, and pod availability.
 \end{itemize}
 
-\project{CryptoFolio}{Jenkins, Docker, SonarCloud, AWS ECR, Elastic Beanstalk, S3 \textcolor{rulegray}{\textbar{}} \href{https://aftabmulani11.github.io/cryptofolio/}{\textcolor{brandblue}{live demo}}}
+\project{CryptoFolio}{Jenkins, Docker, SonarCloud, AWS ECR, Elastic Beanstalk, S3 \textcolor{rulegray}{\textbar{}} \href{https://github.com/AftabMulani11/cryptofolio}{\textcolor{brandblue}{source code}}}
 \begin{itemize}
   \item Engineered a secure Flask/React portfolio platform exposing 13 JWT-authenticated REST APIs, containerized with Docker and verified by 8 automated test suites run in CI.
   \item Automated a 6-stage Jenkins pipeline (tests, SonarCloud quality gate, image build, ECR publish, Elastic Beanstalk/S3 deploy), delivering commit-to-cloud CI/CD with zero manual release steps.
