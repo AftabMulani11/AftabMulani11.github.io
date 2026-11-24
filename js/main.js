@@ -78,17 +78,17 @@
       file: "lambda_benchmark_dashboard.md",
       title: "Lambda Performance and Cost Benchmarking Suite",
       role: "AWS serverless performance and cost analysis",
-      summary: "Benchmarked six AWS Lambda memory tiers across three workloads. The 512 MB tier cut CPU-bound warm latency by 76.9% and estimated cost per 1,000 requests by 6.7%.",
+      summary: "Benchmarked six AWS Lambda memory tiers across three workloads. The 512 MB tier reduced CPU-bound warm latency by 76.9% and estimated cost per 1,000 requests by 6.7%.",
       overview: "The suite provisions six isolated Lambda functions in eu-west-1 with AWS SAM and HTTP API Gateway v2. A Boto3 harness measures cold and warm execution, and a FastAPI dashboard compares the recorded results.",
       tags: ["Python 3.12", "FastAPI", "Mangum", "AWS SAM", "Lambda", "DynamoDB", "Boto3", "SciPy", "Chart.js"],
       points: [
         "Provisioned 128 MB, 256 MB, 512 MB, 1,024 MB, 2,048 MB, and 3,008 MB Lambda functions for health, CPU-bound transformation, and DynamoDB I/O benchmarks.",
         "Used Mangum and lazy DynamoDB initialization to avoid unnecessary SDK setup on health and transformation requests.",
         "Captured Lambda REPORT data with LogType=Tail and collected 50 warm runs per memory tier without waiting for CloudWatch ingestion.",
-        "Identified 512 MB as the best cost-performance tradeoff for the CPU-bound workload, reducing warm latency from 684.54 ms to 158.36 ms.",
+        "Measured CPU-bound warm latency of 158.36 ms at 512 MB, down from 684.54 ms.",
         "Reduced DynamoDB I/O warm latency from 63.82 ms to 8.16 ms and built a Function URL analyzer that measures DNS, TCP, TLS, and time to first byte.",
       ],
-      takeaway: "The dashboard compares latency and cost across tiers using recorded benchmark CSVs.",
+      takeaway: "The dashboard uses recorded CSV results to compare response times and estimated costs for each memory setting.",
       metrics: [
         { k: "6", v: "memory tiers" },
         { k: "76.9%", v: "lower CPU warm latency" },
@@ -102,7 +102,7 @@
       title: "GreenStay — Event-Driven Hotel Operations Platform",
       role: "Flask, EC2 deployment, and asynchronous messaging",
       summary: "A hotel operations app that separates REST booking and check-in flows from transactional email delivery through SQS, Lambda, and SES.",
-      overview: "The Flask API queues notifications while responding to booking requests. A background processing path handles email delivery independently. Jenkins and Docker Compose deploy the app to EC2, and version-controlled Kubernetes manifests describe an alternative deployment.",
+      overview: "The Flask API queues notifications while responding to booking requests. The email worker processes queued messages independently of the booking API. Jenkins and Docker Compose deploy the app to EC2, and version-controlled Kubernetes manifests describe an alternative deployment.",
       tags: ["AWS EC2", "SQS", "Lambda", "SES", "Flask", "React", "Docker Compose", "Jenkins", "Kustomize"],
       points: [
         "Implemented hotel registration, guest check-in and checkout, sustainability reporting, and asynchronous email delivery.",
@@ -133,7 +133,7 @@
         "Validated REST routes, WebSocket parsing, and DynamoDB operations in the test suite.",
         "Configured SonarCloud quality checks and automated Docker builds, ECR publishing, and Elastic Beanstalk deployment through Jenkins.",
       ],
-      takeaway: "The delivery pipeline checks application and data-handling behavior before deploying container images.",
+      takeaway: "Jenkins runs automated tests and checks the SonarCloud quality gate before deployment.",
       metrics: [
         { k: "6 stages", v: "Jenkins CI/CD" },
         { k: "8", v: "test modules" },
@@ -147,18 +147,18 @@
       title: "SAARUSH 2.0 — Voice Automation Assistant",
       role: "Python · applied AI",
       summary:
-        "A voice-driven automation assistant featuring face authentication, speech-to-text, text-to-speech and computer vision for extensible, hands-free system workflows.",
+        "A Python desktop assistant that accepts voice commands, checks the user’s face, and reads responses aloud.",
       overview:
-        "SAARUSH 2.0 is a desktop voice assistant that puts a face-authentication gate in front of hands-free automation. It listens for spoken commands, converts speech to text, executes an extensible command set, and responds with synthesized voice — while computer vision verifies the user before unlocking sensitive actions. Built as an exploration of real-time audio processing and applied CV.",
+        "The assistant uses SpeechRecognition and PyAudio to capture commands, OpenCV to verify the user before protected commands, and pyttsx3 to read out results.",
       tags: ["Python", "Speech Recognition", "PyAudio", "Pyttsx3", "OpenCV", "Automation"],
       points: [
-        "Built voice command flows for faster, hands-free task automation.",
-        "Integrated speech-to-text and text-to-speech for natural input and spoken responses.",
-        "Added a face-authentication gate using computer vision before privileged commands.",
-        "Designed an extensible command layer so new automations plug in cleanly.",
+        "Implemented voice commands for desktop tasks.",
+        "Integrated speech recognition and text-to-speech.",
+        "Used OpenCV to verify the user before running protected commands.",
+        "Organized desktop tasks as separate commands so they can be added or updated individually.",
       ],
       takeaway:
-        "Highlights system-level scripting, real-time audio processing and applied computer vision in a single interactive tool.",
+        "Users can run supported desktop tasks through voice commands after completing face verification where required.",
       metrics: [
         { k: "voice", v: "STT + TTS" },
         { k: "face", v: "CV auth" },
@@ -194,19 +194,19 @@
       title: "QA Automation Portfolio",
       role: "Test automation · JALA Academy",
       summary:
-        "Five Java test-automation projects consolidated in one repo — Selenium UI suites, a reusable Page Object framework, Cucumber BDD specs, REST Assured API tests and a full end-to-end booking flow.",
+        "Five Java test projects using Selenium WebDriver, the Page Object Model, Cucumber behavior-driven development (BDD), REST Assured, and an end-to-end booking test.",
       overview:
-        "These projects consolidate QA automation work completed at JALA Academy. It spans 17 Selenium test classes of real-world UI scenarios, a framework layer with a driver factory and Page Object Model, business-readable Cucumber BDD with Gherkin feature files, REST Assured API tests covering CRUD, token auth and JSON schema validation, and an end-to-end yoga-booking user journey. Each subfolder is a standalone Maven project.",
+        "The repository contains 17 Selenium test classes, shared browser setup and page objects, Cucumber scenarios, REST Assured API tests, and an end-to-end booking test. I completed the projects at JALA Academy. Each runs independently with Maven.",
       tags: ["Java", "Selenium", "Cucumber", "REST Assured", "TestNG", "Maven", "Page Object Model"],
       points: [
-        "17 Selenium test classes covering real-world UI scenarios, waits, assertions and cross-page flows.",
+        "Wrote 17 Selenium test classes with explicit waits, assertions, and cross-page checks.",
         "Reusable framework layer: base test, driver factory, wrapper utilities and Page Object Model.",
-        "Cucumber BDD with Gherkin feature specs and step definitions for business-readable tests.",
-        "REST Assured API suite: CRUD, token authentication, response and JSON schema validation.",
-        "End-to-end booking-flow automation modeling a complete user journey.",
+        "Wrote Cucumber scenarios in Gherkin and implemented their step definitions.",
+        "Used REST Assured to test create, read, update, and delete operations, token authentication, and JSON schema validation.",
+        "Automated the booking process from start to finish.",
       ],
       takeaway:
-        "Shows framework thinking — separating reusable test infrastructure from test cases — and multi-layer coverage (UI, API, BDD, E2E), the testing discipline that carries straight into CI/CD quality gates.",
+        "The Selenium projects share browser setup and page objects across test cases. The remaining projects cover API behavior and the full booking process.",
       metrics: [
         { k: "5", v: "projects" },
         { k: "17", v: "UI test classes" },
