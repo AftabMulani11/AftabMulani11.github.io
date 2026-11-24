@@ -1,6 +1,6 @@
 # Aftab Mulani — Online Portfolio
 
-Personal portfolio website — **Cloud & DevOps Engineer**.
+Personal portfolio for Aftab Firoz Mulani, AWS Certified Solutions Architect – Associate, covering cloud engineering, DevOps, and IAM.
 
 🔗 **Live:** [aftabmulani11.github.io](https://aftabmulani11.github.io/)
 
@@ -8,13 +8,13 @@ Personal portfolio website — **Cloud & DevOps Engineer**.
 
 - Responsive single-page portfolio
 - Skills, projects, and experience sections
-- Downloadable ATS-friendly résumé (LaTeX source included)
+- Downloadable résumé
 
 ## Tech
 
 - HTML / vanilla JavaScript / Three.js background
 - Tailwind CSS (built to `dist/app.css`)
-- LaTeX résumé source, compiled via `tools/build_resume.sh`
+- Résumé PDF published from `assets/Aftab-Mulani-Resume.pdf`
 
 ## Run locally
 

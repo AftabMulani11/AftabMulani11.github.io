@@ -2,12 +2,11 @@
   "name": "aftab-mulani-portfolio",
   "version": "2.0.0",
   "private": true,
-  "description": "Cinematic Cloud portfolio — Aftab Mulani, Cloud & DevOps Engineer",
+  "description": "Aftab Firoz Mulani’s Cloud, DevOps, and IAM portfolio",
   "scripts": {
     "build:css": "tailwindcss -i ./src/input.css -o ./dist/app.css --minify",
-    "build:resume": "bash tools/build_resume.sh",
     "build:portrait": "python tools/stylize_portrait.py",
-    "build": "npm run build:css && npm run build:resume",
+    "build": "npm run build:css",
     "watch": "tailwindcss -i ./src/input.css -o ./dist/app.css --watch",
     "serve": "npx serve -l 4321 ."
   },

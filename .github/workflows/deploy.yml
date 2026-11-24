@@ -35,7 +35,7 @@ jobs:
         run: npm run build:css
 
       # Publish only the static site (no node_modules, source, or tooling).
-      # The résumé PDF is built locally from LaTeX and committed in assets/.
+      # Publish the supplied résumé PDF from assets/.
       - name: Assemble static site
         run: |
           mkdir -p _site
